@@ -1,0 +1,49 @@
+<div class="jumbotron">
+    <h2>Clase 1</h2>
+    <hr>
+    <br>
+
+    <h4>Ejercicio 1</h4>
+    <p>
+        1- (app.component.html) Realizar:
+        una aplicacion que se le ingresen dos edades en dos cuadro de textos
+        edadUno, EdadDos
+        mostrar el promedio y la suma en dos cuadros de textos nuevos
+        botones "calcular" y "limpiar cuadros de textos"
+    </p>
+    <br>
+
+    <div class="row mb-4">
+        <div class="col-4">
+            <input type="number" class="mr-2 mb-2" placeholder="edadUno" [(ngModel)]="suma.edadUno">
+            <input type="number" placeholder="EdadDos" [(ngModel)]="suma.edadDos">
+        </div>
+        <div class="col-4">
+            <p>Suma</p>
+            <input type="number" readonly [value]="suma.suma">
+        </div>
+        <div class="col-4">
+            <p>Promedio</p>
+            <input type="number" readonly [value]="suma.promedio">
+        </div>
+        <br>
+    </div>
+    <button class="btn btn-success mr-2" (click)="suma.calcular()">Calcular</button>
+    <button class="btn btn-warning" (click)="suma.limpiar()">Limpiar cuadrados de textos</button>
+
+    <br>
+    <hr>
+
+    <h4>Ejercicio 2</h4>
+    <p>
+        2-( componentes nuevos) Realizar:
+        la clase usuario con nombre y clave ,
+        el componente "Bienvenido"
+        el componente "login"
+        el componente "error"
+        ( dejar los componentes listos)
+        opcional: hacer ruteo
+    </p>
+    <br>
+    
+</div>
