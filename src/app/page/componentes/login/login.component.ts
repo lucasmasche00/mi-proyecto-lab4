@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from 'src/app/entidades/usuario';
+import { Router } from 'express';
+import { Usuario } from '../../entidades/usuario';
 
 @Component({
   selector: 'app-login',
@@ -16,5 +17,5 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
 }
