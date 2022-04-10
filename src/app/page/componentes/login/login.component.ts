@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from 'express';
 import { Usuario } from '../../entidades/usuario';
 
 @Component({
