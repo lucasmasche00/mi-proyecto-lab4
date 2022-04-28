@@ -11,6 +11,17 @@ export class Usuario {
         this.clave = this.codificar(value);
     }
 
+    public isLogged() {
+        return sessionStorage.getItem("usuario") != null && sessionStorage.getItem("claveHash") != null;
+    }
+
+    public logout() {
+        if (this.isLogged()) {
+            sessionStorage.removeItem("usuario");
+            sessionStorage.removeItem("claveHash");
+        }
+    }
+
     public login() {
         let nombreCache = sessionStorage.getItem("usuario");
         let claveHashCache = sessionStorage.getItem("claveHash");

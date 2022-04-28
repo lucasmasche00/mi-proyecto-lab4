@@ -13,6 +13,11 @@ export class HomeComponent implements OnInit {
     this.nombreUsuario = sessionStorage.getItem('usuario') ?? 'unknown';
   }
 
+
+  public isLogged() {
+    return sessionStorage.getItem('usuario') != null && sessionStorage.getItem('claveHash') != null;
+  }
+
   ngOnInit(): void {
   }
 

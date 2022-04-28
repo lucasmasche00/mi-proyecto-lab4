@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: 'juegos', component: JuegosComponent, children: [
       { path: 'tateti', component: TatetiComponent },
-      { path: '**', component: NotFoundComponent }
+      { path: 'login', component: LoginComponent }
     ]
   },
   { path: 'clase1', component: Clase1Component },
