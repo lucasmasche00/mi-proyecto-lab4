@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "mi-proyecto-lab4"
+  },
+  "targets": {
+    "mi-proyecto-lab4": {
+      "hosting": {
+        "mi-proyecto-lab4": [
+          "mi-proyecto-lab4"
+        ]
+      }
+    }
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../../entidades/usuario';
+import { UsuariosService } from '../../servicios/usuarios.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,20 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
-
-  public isLogged() {
-    return sessionStorage.getItem("usuario") != null && sessionStorage.getItem("claveHash") != null;
-  }
-
-  public logout() {
-    if (this.isLogged()) {
-      sessionStorage.removeItem("usuario");
-      sessionStorage.removeItem("claveHash");
-    }
-  }
+  constructor(public usuariosService: UsuariosService) { }
 
   ngOnInit(): void {
   }
 
+  public isLogged() {
+    return this.usuariosService.isLogged();
+  }
+  
+  public logout() {
+    if (this.isLogged()) {
+      sessionStorage.removeItem("usuario")
+      this.usuariosService.usuarioLogueado = new Usuario('','');
+    }
+  }
 }

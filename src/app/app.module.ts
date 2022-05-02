@@ -15,6 +15,11 @@ import { JuegosComponent } from './page/componentes/juegos/juegos.component';
 import { QuienSoyComponent } from './page/componentes/quien-soy/quien-soy.component';
 import { HomeComponent } from './page/componentes/home/home.component';
 import { MenuComponent } from './page/componentes/menu/menu.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { MainComponent } from './page/componentes/main/main.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +34,16 @@ import { MenuComponent } from './page/componentes/menu/menu.component';
     JuegosComponent,
     QuienSoyComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

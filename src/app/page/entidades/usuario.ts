@@ -1,39 +1,17 @@
 export class Usuario {
-    nombre: string = 'testUser';
-    clave: string = 'palanca';
+    public nombre: string;
+    public clave: string;
 
-    constructor() {
-        sessionStorage.setItem("usuario", this.nombre);
-        sessionStorage.setItem("claveHash", 'mbibkd^Z'); //palanca
+    constructor(nombre: string, clavePura: string) {
+        this.nombre = nombre;
+        this.clave = Usuario.codificar(clavePura);
     }
 
-    private setClave(value: string): void {
-        this.clave = this.codificar(value);
-    }
-
-    public isLogged() {
-        return sessionStorage.getItem("usuario") != null && sessionStorage.getItem("claveHash") != null;
-    }
-
-    public logout() {
-        if (this.isLogged()) {
-            sessionStorage.removeItem("usuario");
-            sessionStorage.removeItem("claveHash");
-        }
-    }
-
-    public login() {
-        let nombreCache = sessionStorage.getItem("usuario");
-        let claveHashCache = sessionStorage.getItem("claveHash");
-
-        return console.log(nombreCache === this.nombre && claveHashCache === this.codificar(this.clave) ? 'Éxito' : 'Falló');
-    }
-
-    private codificar(palabra: string): string {
+    public static codificar(palabra: string): string {
         let caracteres = Array.from(palabra)
         let sumaCaracteres = 0;
         for (let i = 0; i < caracteres.length; i++) {
-            if (!this.validateAsciiCode(caracteres[i]))
+            if (!Usuario.validateAsciiCode(caracteres[i]))
                 return '';
             const caracterAsciiCode = caracteres[i].charCodeAt(0);
             if (i % 2 == 0)
@@ -43,11 +21,11 @@ export class Usuario {
             sumaCaracteres += caracterAsciiCode;
         }
         let ultimoCaracter = String.fromCharCode(sumaCaracteres % caracteres.length);
-        this.validateAsciiCode(ultimoCaracter) ? caracteres.push(ultimoCaracter) : caracteres.push(String.fromCharCode(90));
+        Usuario.validateAsciiCode(ultimoCaracter) ? caracteres.push(ultimoCaracter) : caracteres.push(String.fromCharCode(90));
         return Usuario.arrayCharToString(caracteres);
     }
 
-    private validateAsciiCode(char: string): boolean {
+    private static validateAsciiCode(char: string): boolean {
         let isValidChar = false;
 
         if (char.length == 1) {

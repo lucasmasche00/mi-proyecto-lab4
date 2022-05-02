@@ -11,7 +11,7 @@ import { QuienSoyComponent } from './page/componentes/quien-soy/quien-soy.compon
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: HomeComponent },
   { path: 'about', component: QuienSoyComponent },
   {
     path: 'juegos', component: JuegosComponent, children: [

@@ -103,6 +103,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "mi-proyecto-lab4:build:production",
+            "firebaseProject": "mi-proyecto-lab4",
+            "firebaseHostingSite": "mi-proyecto-lab4"
+          }
         }
       }
     }

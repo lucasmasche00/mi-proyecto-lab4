@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../../entidades/usuario';
+import { UsuariosService } from '../../servicios/usuarios.service';
 
 @Component({
   selector: 'app-home',
@@ -7,18 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  nombreUsuario: string;
+  mostrarBienvenida: boolean;
 
-  constructor() {
-    this.nombreUsuario = sessionStorage.getItem('usuario') ?? 'unknown';
-  }
-
-
-  public isLogged() {
-    return sessionStorage.getItem('usuario') != null && sessionStorage.getItem('claveHash') != null;
+  constructor(public usuariosService: UsuariosService) {
+    this.mostrarBienvenida = this.usuariosService.isLogged();
   }
 
   ngOnInit(): void {
   }
 
+  public recibirIsLogged(isLoggedStr: string) {
+    this.mostrarBienvenida = isLoggedStr == 'y';
+  }
 }
