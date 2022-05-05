@@ -12,7 +12,7 @@ export class UsuariosService {
   constructor() {
     this.listaUsuarios = [
       new Usuario('testUser', 'palanca'),
-      new Usuario('pepe', 'chipote')
+      new Usuario('invitado', 'chipote')
     ]
 
     this.usuarioLogueado = this.getUsuarioLogueado();

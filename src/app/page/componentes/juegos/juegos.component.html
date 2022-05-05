@@ -1,3 +1,69 @@
-<p>juegos works!</p>
-<button class="btn btn-warning" routerLink="tateti">Tateti</button>
-<router-outlet></router-outlet>
+<section class="text-center mt-4 mb-2">
+  <div class="container">
+    <h1>Juegos</h1>
+  </div>
+</section>
+
+<div class="album py-5">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="../../../../assets/img/ahorcado.jpg" width="100%" height="225" role="img"
+            aria-label="Juego del ahorcado" alt="ahorcado">
+
+          <div class="card-body bg-dark">
+            <h5>Ahorcado</h5>
+            <p class="card-text">Un juego en el que tendrás que adivinar la palabra oculta o quedarás ahorcado.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <!-- SI LE QUIERO AGREGAR MÁS BOTONES AL PANEL DEL JUEGO
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-success">Jugar</button>
+                  <button type="button" class="btn btn-sm btn-outline-success">Edit</button>
+                </div> -->
+              <button type="button" class="btn btn-sm btn-outline-success px-5">Jugar</button>
+              <i *ngIf="!isAhorcadoLike" class="fa-regular fa-thumbs-up clickable" (click)="clickLikeButtonAhorcado()"><small> 10 Likes</small></i>
+              <i *ngIf="isAhorcadoLike" class="fa-solid fa-thumbs-up clickable" (click)="clickLikeButtonAhorcado()"><small> 11 Likes</small></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="../../../../assets/img/mayor-o-menor.jpg" width="100%" height="225" role="img"
+            aria-label="Juego de mayor o menor" alt="mayor-o-menor">
+
+          <div class="card-body bg-dark">
+            <h5>Mayor o menor</h5>
+            <p class="card-text">Elige si la próxima carta va a ser mayor o menor a la que te tocó y sumá puntos.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <button type="button" class="btn btn-sm btn-outline-success px-5">Jugar</button>
+              <i *ngIf="!isMayorOMenorLike" class="fa-regular fa-thumbs-up clickable" (click)="clickLikeButtonMayorOMenor()"><small> 25 Likes</small></i>
+              <i *ngIf="isMayorOMenorLike" class="fa-solid fa-thumbs-up clickable" (click)="clickLikeButtonMayorOMenor()"><small> 26 Likes</small></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img src="../../../../assets/img/rompecabezas-deslizante.jpg" width="100%" height="225" role="img"
+            aria-label="Juego de rompecabezas deslizante" alt="rompecabezas-deslizante">
+
+          <div class="card-body bg-dark">
+            <h5>Rompecabezas deslizante</h5>
+            <p class="card-text">Mueve las fichas para colocar todos los números en orden en la menor cantidad de movimientos posibles.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <button type="button" class="btn btn-sm btn-outline-success px-5">Jugar</button>
+              <i *ngIf="!isRompecabezasDeslizanteLike" class="fa-regular fa-thumbs-up clickable" (click)="clickLikeButtonRompecabezasDeslizante()"><small> 17 Likes</small></i>
+              <i *ngIf="isRompecabezasDeslizanteLike" class="fa-solid fa-thumbs-up clickable" (click)="clickLikeButtonRompecabezasDeslizante()"><small> 18 Likes</small></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

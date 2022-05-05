@@ -10,7 +10,6 @@ import { ErrorComponent } from './componentes/error/error.component';
 import { NotFoundComponent } from './page/componentes/not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PreguntadosComponent } from './page/componentes/preguntados/preguntados.component';
-import { TatetiComponent } from './page/componentes/tateti/tateti.component';
 import { JuegosComponent } from './page/componentes/juegos/juegos.component';
 import { QuienSoyComponent } from './page/componentes/quien-soy/quien-soy.component';
 import { HomeComponent } from './page/componentes/home/home.component';
@@ -20,6 +19,7 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { MainComponent } from './page/componentes/main/main.component';
+import { AhorcadoComponent } from './page/componentes/ahorcado/ahorcado.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +30,12 @@ import { MainComponent } from './page/componentes/main/main.component';
     ErrorComponent,
     NotFoundComponent,
     PreguntadosComponent,
-    TatetiComponent,
     JuegosComponent,
     QuienSoyComponent,
     HomeComponent,
     MenuComponent,
-    MainComponent
+    MainComponent,
+    AhorcadoComponent
   ],
   imports: [
     BrowserModule,

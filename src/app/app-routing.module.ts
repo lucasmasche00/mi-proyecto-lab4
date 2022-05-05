@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { Clase1Component } from './componentes/clase1/clase1.component';
 import { NotFoundComponent } from './page/componentes/not-found/not-found.component';
 import { JuegosComponent } from './page/componentes/juegos/juegos.component';
-import { TatetiComponent } from './page/componentes/tateti/tateti.component';
 import { HomeComponent } from './page/componentes/home/home.component';
 import { LoginComponent } from './page/componentes/login/login.component';
 import { QuienSoyComponent } from './page/componentes/quien-soy/quien-soy.component';
@@ -15,7 +14,6 @@ const routes: Routes = [
   { path: 'about', component: QuienSoyComponent },
   {
     path: 'juegos', component: JuegosComponent, children: [
-      { path: 'tateti', component: TatetiComponent },
       { path: 'login', component: LoginComponent }
     ]
   },
