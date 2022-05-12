@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
   public logout() {
     if (this.isLogged()) {
       sessionStorage.removeItem("usuario")
-      this.usuariosService.usuarioLogueado = new Usuario('','');
+      this.usuariosService.usuarioLogueado = new Usuario('','','');
     }
   }
 }

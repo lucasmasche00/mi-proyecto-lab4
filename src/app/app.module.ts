@@ -14,10 +14,10 @@ import { JuegosComponent } from './page/componentes/juegos/juegos.component';
 import { QuienSoyComponent } from './page/componentes/quien-soy/quien-soy.component';
 import { HomeComponent } from './page/componentes/home/home.component';
 import { MenuComponent } from './page/componentes/menu/menu.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { MainComponent } from './page/componentes/main/main.component';
 import { AhorcadoComponent } from './page/componentes/ahorcado/ahorcado.component';
 
@@ -41,9 +41,9 @@ import { AhorcadoComponent } from './page/componentes/ahorcado/ahorcado.componen
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

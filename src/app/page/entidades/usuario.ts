@@ -1,10 +1,12 @@
 export class Usuario {
     public nombre: string;
     public clave: string;
+    public fechaLogin: string;
 
-    constructor(nombre: string, clavePura: string) {
+    constructor(nombre: string, clavePura: string, fechaLogin: string) {
         this.nombre = nombre;
         this.clave = Usuario.codificar(clavePura);
+        this.fechaLogin = '';
     }
 
     public static codificar(palabra: string): string {

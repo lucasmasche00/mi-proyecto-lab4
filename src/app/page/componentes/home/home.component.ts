@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public recibirIsLogged(isLoggedStr: string) {
-    this.mostrarBienvenida = isLoggedStr == 'y';
+  public isLogged() {
+    return this.usuariosService.isLogged();
   }
 }

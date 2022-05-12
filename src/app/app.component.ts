@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mi-proyecto-lab4';
+  constructor() { }
 }
