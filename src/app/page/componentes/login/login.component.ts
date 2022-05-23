@@ -27,9 +27,10 @@ export class LoginComponent implements OnInit {
     let mensaje = 'El usuario/clave no coincide';
     this.usuariosService.usuariosDB.forEach(u => {
       if (u.nombre === this.usuarioAuxLogin.nombre && u.clave === this.usuarioAuxLogin.clave) {
-        sessionStorage.setItem("usuario", JSON.stringify({ 'nombre': this.usuarioAuxLogin.nombre, 'clave': this.usuarioAuxLogin.clave, 'fechaLogin': fechaLogin }));
-        this.usuariosService.usuarioLogueado = { ...this.usuarioAuxLogin };
+        sessionStorage.setItem("usuario", JSON.stringify({ 'nombre': u.nombre, 'clave': u.clave, 'fechaLogin': fechaLogin }));
+        this.usuariosService.usuarioLogueado = { ...u };
         this.usuariosService.updateUsuarioFechaLogin(this.usuariosService.usuarioLogueado.nombre, fechaLogin);
+        this.usuariosService.agregarLogIngresoUsuario(this.usuariosService.usuarioLogueado.nombre, fechaLogin);
         mensaje = 'Éxito';
         return;
       }
@@ -43,19 +44,22 @@ export class LoginComponent implements OnInit {
   }
 
   //OPCION 1
-  public loginAsGuest() {
+  /* public loginAsGuest() {
+    let nombre = 'invitado';
+    let clave = '`ifqlubZ';
     let fechaLogin = new Date(Date.now()).toLocaleString();
-    sessionStorage.setItem("usuario", JSON.stringify({ 'nombre': 'invitado', 'clave': '`ifqlubZ' }));
-    this.usuariosService.usuarioLogueado = new Usuario('invitado', '`ifqlubZ', fechaLogin);
+    sessionStorage.setItem("usuario", JSON.stringify({ 'nombre': nombre, 'clave': clave }));
+    this.usuariosService.usuarioLogueado = new Usuario(nombre, clave, fechaLogin);
     this.usuariosService.updateUsuarioFechaLogin(this.usuariosService.usuarioLogueado.nombre, fechaLogin);
-  }
+    this.usuariosService.agregarLogIngresoUsuario(nombre, fechaLogin);
+  } */
 
   //OPCION 2
-  /* public loginAsGuest() {
-    this.usuarioAux.nombre = 'invitado';
-    this.usuarioAux.clave = '`ifqlubZ';
+  public loginAsGuest() {
+    this.usuarioAuxLogin.nombre = 'invitado';
+    this.usuarioAuxLogin.clave = '`ifqlubZ';
     this.clavePura = 'chipote';
-  } */
+  }
 
   public signUp() {
     let fechaLogin = new Date(Date.now()).toLocaleString();
@@ -78,6 +82,7 @@ export class LoginComponent implements OnInit {
         this.usuariosService.usuarioLogueado = usuarioAux;
         this.usuariosService.usuariosDB.push(usuarioAux);
         this.usuariosService.agregarUsuario(usuarioAux.nombre, usuarioAux.nombre, usuarioAux.clave, fechaLogin);
+        this.usuariosService.agregarLogIngresoUsuario(usuarioAux.nombre, fechaLogin);
         mensaje = 'Registro exitoso';
       }
     }

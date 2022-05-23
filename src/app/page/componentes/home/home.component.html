@@ -1,8 +1,9 @@
 <div *ngIf="this.isLogged(); else login" class="container my-3 text-center">
     <h1 class="display-4">Bienvenido {{ usuariosService.usuarioLogueado.nombre }}</h1>
-    <img src="../../../../assets/img/firecracker.png" alt="fuegos-izquierda" width="400">
-    <img src="../../../../assets/img/welcome.png" alt="bienvenida" width="200">
-    <img src="../../../../assets/img/firecracker.png" alt="fuegos-derecha" width="400">
+    <div class="mt-5">
+        <img src="../../../../assets/img/car-destroyed.gif" alt="fuegos-izquierda" height="200">
+        <img class="pt-4" src="../../../../assets/img/ryu-hadouken.webp" alt="fuegos-derecha" width="400">
+    </div>
 </div>
 <ng-template #login>
     <app-login></app-login>
