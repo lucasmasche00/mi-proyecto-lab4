@@ -1,1 +1,34 @@
-<p>ahorcado works!</p>
+<section class="text-center mt-4 mb-2">
+    <div class="container">
+        <h1>Ahorcado</h1>
+    </div>
+</section>
+<div class="container">
+    <div class="row mt-5 fondo-ahorcado" style="display:flex;align-items: center;">
+        <div class="col-7 text-center separar-letras">
+            <span class="display-4" *ngFor="let letra of arrayLetrasAdivinadas">{{ letra }}</span>
+        </div>
+        <div [ngSwitch]="errores" class="col-5 text-center">
+            <img *ngSwitchCase="0" src="../../../../assets/img/ahorcado-muñeco-0.png" alt="ahorcado-0">
+            <img *ngSwitchCase="1" src="../../../../assets/img/ahorcado-muñeco-1.png" alt="ahorcado-1">
+            <img *ngSwitchCase="2" src="../../../../assets/img/ahorcado-muñeco-2.png" alt="ahorcado-2">
+            <img *ngSwitchCase="3" src="../../../../assets/img/ahorcado-muñeco-3.png" alt="ahorcado-3">
+            <img *ngSwitchCase="4" src="../../../../assets/img/ahorcado-muñeco-4.png" alt="ahorcado-4">
+            <img *ngSwitchCase="5" src="../../../../assets/img/ahorcado-muñeco-5.png" alt="ahorcado-5">
+            <img *ngSwitchCase="6" src="../../../../assets/img/ahorcado-muñeco-6.png" alt="ahorcado-6">
+        </div>
+    </div>
+    <div class="row my-5 separar-botones" style="display:flex;">
+        <button *ngFor="let letra of arrayLetras" class="btn btn-success" (click)="adivinar(letra)">{{ letra }}</button>
+    </div>
+    <div class="text-center">
+        <div *ngIf="gameOver">
+            <h1 class="text-danger">Juego Terminado</h1>
+            <button class="btn btn-warning my-3" onClick="window.location.reload();">Juegar de nuevo</button>
+        </div>
+        <div *ngIf="juegoGanado">
+            <h1 class="text-success">¡Has ganado!</h1>
+            <button class="btn btn-warning my-3" onClick="window.location.reload();">Juegar de nuevo</button>
+        </div>
+    </div>
+</div>

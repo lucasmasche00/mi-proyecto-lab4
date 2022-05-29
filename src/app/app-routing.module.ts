@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: HomeComponent },
   { path: 'chat', loadChildren: () => import('./page/modulos/chat/chat.module').then(m => m.ChatModule), canActivate: [LoginGuard] },
+  { path: 'juegos/ahorcado', loadChildren: () => import('./page/modulos/ahorcado/ahorcado.module').then(m => m.AhorcadoModule), canActivate: [LoginGuard] },
   { path: 'about', component: QuienSoyComponent },
   {
     path: 'juegos', component: JuegosComponent, canActivate: [LoginGuard], children: [

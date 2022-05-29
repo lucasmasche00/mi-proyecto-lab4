@@ -7,23 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JuegosComponent implements OnInit {
 
-  isAhorcadoLike: boolean = false;
-  isMayorOMenorLike: boolean = false;
-  isRompecabezasDeslizanteLike: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  clickLikeButtonAhorcado() {
-    this.isAhorcadoLike = !this.isAhorcadoLike;
-  }
-
-  clickLikeButtonMayorOMenor() {
-    this.isMayorOMenorLike = !this.isMayorOMenorLike;
-  }
-
-  clickLikeButtonRompecabezasDeslizante() {
-    this.isRompecabezasDeslizanteLike = !this.isRompecabezasDeslizanteLike;
   }
 }
