@@ -1,0 +1,34 @@
+<div class="col-10 col-offset-10 frame" style="top: 100px;left: 8%;">
+    <ul>
+        <li *ngFor="let mensaje of chatService.mensajesDB | sort: 'fecha'" style="width:100%">
+            <div *ngIf="!usuariosService.isLoggedUser(mensaje.usuario) || mensaje.usuario == 'invitado'; else miMensaje" class="msj macro">
+                <div class="username text-danger">
+                    <p>{{ mensaje.usuario }}</p>
+                </div>
+                <div class="text text-l">
+                    <p>{{ mensaje.mensaje }}</p>
+                    <p><small>{{ mensaje.fecha | tiempoDesdeAhora }}</small></p>
+                </div>
+            </div>
+            <ng-template #miMensaje>
+                <div class="msj-rta macro">
+                    <div class="text text-r">
+                        <p>{{ mensaje.mensaje}}</p>
+                        <p><small>{{ mensaje.fecha | tiempoDesdeAhora }}</small></p>
+                    </div>
+                    <div class="username" style="padding:0px 0px 0px 10px !important">
+                        <p>Yo</p>
+                    </div>
+                </div>
+            </ng-template>
+        </li>
+    </ul>
+    <div>
+        <div class="text text-r" style="background:white !important">
+            <input class="mytext" placeholder="Escribe un mensaje..." [(ngModel)]="miMensaje" />
+        </div>
+        <div style="padding:10px;">
+            <button class="w-100 btn btn-lg btn-info" (click)="enviarMensaje()">Enviar</button>
+        </div>
+    </div>
+</div>

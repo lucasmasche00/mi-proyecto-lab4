@@ -6,14 +6,16 @@ import { JuegosComponent } from './page/componentes/juegos/juegos.component';
 import { HomeComponent } from './page/componentes/home/home.component';
 import { LoginComponent } from './page/componentes/login/login.component';
 import { QuienSoyComponent } from './page/componentes/quien-soy/quien-soy.component';
+import { LoginGuard } from './page/guardianes/login.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: HomeComponent },
+  { path: 'chat', loadChildren: () => import('./page/modulos/chat/chat.module').then(m => m.ChatModule), canActivate: [LoginGuard] },
   { path: 'about', component: QuienSoyComponent },
   {
-    path: 'juegos', component: JuegosComponent, children: [
+    path: 'juegos', component: JuegosComponent, canActivate: [LoginGuard], children: [
       { path: 'login', component: LoginComponent }
     ]
   },

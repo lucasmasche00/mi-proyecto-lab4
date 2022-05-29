@@ -50,4 +50,8 @@ export class UsuariosService {
   public agregarLogIngresoUsuario(nombre: string, fechaLogin: string) {
     this.firestore.collection('LogIngresoUsuarios').add({ nombre: nombre, fechaLogin: fechaLogin });
   }
+
+  public isLoggedUser(nombre: string) {
+    return this.usuarioLogueado.nombre == nombre;
+  }
 }
