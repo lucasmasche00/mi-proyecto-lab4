@@ -1,0 +1,83 @@
+<section class="text-center mt-4 mb-2">
+    <div class="container">
+        <h1>Mayor o menor</h1>
+    </div>
+</section>
+<div class="container">
+    <div class="row mt-5 fondo-ahorcado" style="display:flex;justify-content: space-evenly;align-items: center;">
+        <div style="display: flex;align-items: center;">
+            <p class="mr-2">Carta anterior:</p>
+            <div class="text-center ml-2">
+                <table *ngIf="cartaAnterior; else cartaInicio">
+                    <tr>
+                        <td [ngClass]="cartaAnterior.palo.color">{{ cartaAnterior.numero | numeroCarta }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td [ngClass]="cartaAnterior.palo.color" style="height: 80px;"><img
+                                src="../../../../assets/img/{{ cartaAnterior.palo.forma}}.png" width="28"
+                                alt="palo-{{ cartaAnterior.palo.forma}}"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td [ngClass]="cartaAnterior.palo.color">{{ cartaAnterior.numero | numeroCarta }}</td>
+                    </tr>
+                </table>
+                <ng-template #cartaInicio>
+                    <div class="ml-2">
+                        <img src="../../../../assets/img/reverso-baraja.png" width="91.11" height="134.2"
+                            alt="reverso-baraja">
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+        <div style="display: flex;">
+            <div class="text-center mr-2">
+                <table>
+                    <tr>
+                        <td [ngClass]="cartaActual.palo.color">{{ cartaActual.numero | numeroCarta }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td [ngClass]="cartaActual.palo.color" style="height: 80px;"><img
+                                src="../../../../assets/img/{{ cartaActual.palo.forma}}.png" width="28"
+                                alt="palo-{{ cartaActual.palo.forma}}"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td [ngClass]="cartaActual.palo.color">{{ cartaActual.numero | numeroCarta }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="ml-2">
+                <img src="../../../../assets/img/reverso-baraja.png" width="91.11" height="134.2" alt="reverso-baraja">
+            </div>
+        </div>
+    </div>
+    <div class="row my-5 separar-botones" style="display:flex;justify-content: center;">
+        <div class="col-6 text-right">
+            <h4 class="mr-5">Puntaje: {{ puntaje }}</h4>
+        </div>
+        <div class="col-6 text-left">
+            <img *ngFor="let vida of vidas" src="../../../../assets/img/hearts.png" width="28" height="28" alt="vidas">
+        </div>
+    </div>
+    <div class="row my-5 separar-botones" style="display:flex;justify-content: center;">
+        <button class="btn btn-success" (click)="adivinar('menor')">Menor</button>
+        <button class="btn btn-success" (click)="adivinar('mayor')">Mayor</button>
+    </div>
+    <div class="text-center">
+        <div *ngIf="gameOver">
+            <h1 class="text-danger">Juego Terminado</h1>
+            <button class="btn btn-warning my-3" onClick="window.location.reload();">Juegar de nuevo</button>
+        </div>
+    </div>
+</div>

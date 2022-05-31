@@ -19,7 +19,6 @@ import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
 import { MainComponent } from './page/componentes/main/main.component';
-import { AhorcadoComponent } from './page/componentes/ahorcado/ahorcado.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +33,7 @@ import { AhorcadoComponent } from './page/componentes/ahorcado/ahorcado.componen
     QuienSoyComponent,
     HomeComponent,
     MenuComponent,
-    MainComponent,
-    AhorcadoComponent
+    MainComponent
   ],
   imports: [
     BrowserModule,
