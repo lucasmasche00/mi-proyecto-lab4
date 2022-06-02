@@ -14,6 +14,13 @@ export class RompecabezasDeslizanteComponent implements OnInit {
   public estiloVacia: string = 'pieza-vacia';
   public estiloSelec: string = 'pieza-seleccionable';
   public arrayGanador: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ''];
+  public arrayPosbilesSoluciones = [
+    [12,2,15,8,11,3,13,7,5,14,1,9,6,10,4,''],
+    [4,10,11,12,13,2,3,15,1,6,14,9,7,8,5,''],
+    [13,3,10,2,1,9,12,8,11,4,15,14,6,5,7,''],
+    [8,2,9,1,11,12,7,4,3,5,10,15,13,6,14,''],
+    [1,9,14,2,10,5,7,12,3,13,8,11,4,6,15,'']
+  ]
   public indicePiezaVacia: number = 15;
 
   constructor() { }
@@ -77,17 +84,6 @@ export class RompecabezasDeslizanteComponent implements OnInit {
     return piezasSalida;
   }
 
-  private getIndicePiezaVacia() {
-    let indice = 0;
-    for (let i = 0; i < this.piezas.length; i++) {
-      if (this.piezas[i].orden == '') {
-        indice = i;
-        break;
-      }
-    }
-    return indice;
-  }
-
   private getIndiciePiezasSeleccionables(indicePiezaVacia: number) {
     switch (indicePiezaVacia) {
       case 0: return [1, 4];
@@ -111,7 +107,8 @@ export class RompecabezasDeslizanteComponent implements OnInit {
   }
 
   private getRandomRompecabezas() {
-    let arrayRandom = this.getRandomArrayOfNumbers();
+    //let arrayRandom = this.getRandomArrayOfNumbers();//RANDOM TOTAL CON POSIBLES ROMPECABEZAS SIN PODER RESOLVER
+    let arrayRandom = this.arrayPosbilesSoluciones[this.getRandomInt(0, this.arrayPosbilesSoluciones.length - 1)];
     let piezasSalida: any[] = [];
     for (let i = 0; i < arrayRandom.length; i++) {
       switch (i) {
