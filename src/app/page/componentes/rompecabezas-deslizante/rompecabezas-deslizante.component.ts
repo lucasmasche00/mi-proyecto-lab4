@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RompecabezasDeslizanteComponent implements OnInit {
 
-  public puntaje: number = 10000;
+  public puntaje: number = 1000;
   public piezas: any[] = [];
   public gameOver: boolean = false;
   public estiloNormal: string = 'pieza-normal';
@@ -74,7 +74,6 @@ export class RompecabezasDeslizanteComponent implements OnInit {
           break;
       }
     }
-    console.log(piezasSalida);
     return piezasSalida;
   }
 
