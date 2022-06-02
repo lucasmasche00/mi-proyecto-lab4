@@ -1,0 +1,30 @@
+.pieza-normal {
+    border: none;
+    outline: none;
+    background-color: #008001;
+    width: 50px;
+    height: 50px;
+    color: white;
+}
+.pieza-normal:hover {
+	color: inherit;
+	border: none;
+	font: inherit;
+	outline: inherit;
+    cursor: unset;
+}
+.pieza-vacia {
+    width: 50px;
+    height: 50px;
+}
+.pieza-seleccionable {
+    outline: none;
+    border: none;
+    background-color: #008001;
+    width: 50px;
+    height: 50px;
+    color: white;
+}
+.pieza-seleccionable:hover {
+    background-color: rgb(53, 111, 179);
+}

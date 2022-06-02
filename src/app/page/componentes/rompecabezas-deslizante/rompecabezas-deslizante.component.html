@@ -1,0 +1,23 @@
+<section class="text-center mt-4 mb-2">
+    <div class="container">
+        <h1>Rompecabezas deslizante</h1>
+    </div>
+</section>
+<div class="container">
+    <div class="row mt-5" style="display:flex;justify-content: center;align-items: center;">
+        <div style="width: 200px;">
+            <button *ngFor="let pieza of piezas; index as i;" [ngClass]="'btn ' + pieza.estilo" (click)="moverPieza(i)"><span>{{ pieza.orden }}</span></button>
+        </div>
+    </div>
+    <div class="row my-5" style="display:flex;justify-content: center;">
+        <div class="col-12 text-center">
+            <h4 class="mr-5">Puntaje: {{ puntaje }}</h4>
+        </div>
+    </div>
+    <div class="text-center">
+        <div *ngIf="gameOver">
+            <h1 class="text-danger">Juego Terminado</h1>
+            <button class="btn btn-warning my-3" onClick="window.location.reload();">Juegar de nuevo</button>
+        </div>
+    </div>
+</div>
